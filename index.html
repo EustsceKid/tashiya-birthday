@@ -536,6 +536,8 @@
             transition: transform .6s var(--ease);
         }
 
+        .lightbox.open img { transform: scale(1); }
+
         /* ============ CLOSING ============ */
         .closing {
             text-align: center;
@@ -598,11 +600,9 @@
             color: var(--muted);
         }
         /* ============ BOUQUET ============ */
-        .bouquet {
-            width: min(420px, 86vw);
-            margin: 0 auto;
-            display: block;
-        }
+        .bouquet-wrap { width: min(420px, 86vw); margin: 0 auto; }
+
+        .bouquet { width: 100%; height: auto; display: block; overflow: visible; }
 
         .bouquet .stem {
             fill: none;
@@ -615,18 +615,14 @@
 
         .bouquet .leaf { fill: #8fb083; opacity: 0; }
 
-        .bouquet .bloom {
-            transform: scale(0) rotate(-60deg);
-            transform-origin: 0 0;
-            opacity: 0;
-        }
+        .bouquet .bloom { transform: scale(0) rotate(-60deg); opacity: 0; }
 
         .bouquet .sway { transform-origin: 200px 400px; }
 
-        .bouquet.in .stem { animation: drawStem 1.6s var(--ease) var(--d, 0s) forwards; }
-        .bouquet.in .leaf { animation: fadeIn .8s ease var(--d, 1s) forwards; }
-        .bouquet.in .bloom { animation: bloomUp 1.4s var(--ease) var(--d, 1.6s) forwards; }
-        .bouquet.in .sway { animation: sway 7s ease-in-out 4s infinite; }
+        .bouquet-wrap.in .stem { animation: drawStem 1.6s var(--ease) var(--d, 0s) forwards; }
+        .bouquet-wrap.in .leaf { animation: fadeIn .8s ease var(--d, 1s) forwards; }
+        .bouquet-wrap.in .bloom { animation: bloomUp 1.4s var(--ease) var(--d, 1.6s) forwards; }
+        .bouquet-wrap.in .sway { animation: sway 7s ease-in-out 4s infinite; }
 
         @keyframes drawStem { to { stroke-dashoffset: 0; } }
 
@@ -648,6 +644,7 @@
             color: var(--muted);
             margin-top: 18px;
         }
+
         /* ============ SCROLL REVEAL ============ */
         .reveal {
             opacity: 0;
@@ -802,6 +799,59 @@
                     </figure>
                 </div>
             </div>
+        </section>
+
+        <!-- BOUQUET -->
+        <section>
+            <div class="section-head reveal">
+                <p class="eyebrow">Picked just for you</p>
+                <h2>Flowers that <em>never wilt</em></h2>
+            </div>
+
+            <div class="bouquet-wrap reveal" id="bouquetWrap">
+                <svg class="bouquet" viewBox="0 0 400 430" role="img" aria-label="An animated bouquet of flowers">
+                    <defs>
+                        <g id="daisy">
+                            <g fill="currentColor" stroke="rgba(110,47,58,.18)" stroke-width="1"><ellipse cx="0" cy="-17" rx="7" ry="16" transform="rotate(0)"/><ellipse cx="0" cy="-17" rx="7" ry="16" transform="rotate(45)"/><ellipse cx="0" cy="-17" rx="7" ry="16" transform="rotate(90)"/><ellipse cx="0" cy="-17" rx="7" ry="16" transform="rotate(135)"/><ellipse cx="0" cy="-17" rx="7" ry="16" transform="rotate(180)"/><ellipse cx="0" cy="-17" rx="7" ry="16" transform="rotate(225)"/><ellipse cx="0" cy="-17" rx="7" ry="16" transform="rotate(270)"/><ellipse cx="0" cy="-17" rx="7" ry="16" transform="rotate(315)"/></g>
+                            <circle r="8" fill="#c9a46a"/>
+                            <circle r="3.5" fill="#a8803f" opacity=".5"/>
+                        </g>
+                    </defs>
+                    <g class="sway">
+                        <path class="stem" pathLength="1" style="--d:.2s" d="M200 390 C200 300 200 180 200 90"/>
+                        <path class="stem" pathLength="1" style="--d:.35s" d="M200 390 C190 300 140 230 130 140"/>
+                        <path class="stem" pathLength="1" style="--d:.5s" d="M200 390 C210 300 260 230 270 140"/>
+                        <path class="stem" pathLength="1" style="--d:.65s" d="M200 390 C170 340 100 290 70 220"/>
+                        <path class="stem" pathLength="1" style="--d:.8s" d="M200 390 C230 340 300 290 330 220"/>
+                        <path class="stem" pathLength="1" style="--d:.5s" d="M200 390 C200 320 170 250 165 185"/>
+                        <path class="stem" pathLength="1" style="--d:.65s" d="M200 390 C200 320 230 250 235 185"/>
+
+                        <ellipse class="leaf" style="--d:1s" cx="178" cy="290" rx="18" ry="6" transform="rotate(-40 178 290)"/>
+                        <ellipse class="leaf" style="--d:1.1s" cx="224" cy="285" rx="18" ry="6" transform="rotate(40 224 285)"/>
+                        <ellipse class="leaf" style="--d:1.2s" cx="150" cy="235" rx="16" ry="5" transform="rotate(-50 150 235)"/>
+                        <ellipse class="leaf" style="--d:1.3s" cx="252" cy="235" rx="16" ry="5" transform="rotate(50 252 235)"/>
+                        <ellipse class="leaf" style="--d:1.4s" cx="120" cy="290" rx="16" ry="5" transform="rotate(-25 120 290)"/>
+                        <ellipse class="leaf" style="--d:1.5s" cx="282" cy="290" rx="16" ry="5" transform="rotate(25 282 290)"/>
+
+                        <g transform="translate(200 90)"><g class="bloom" style="--d:1.5s"><use href="#daisy" transform="scale(1.5)" style="color:#f3c1c6"/></g></g>
+                        <g transform="translate(130 140)"><g class="bloom" style="--d:1.7s"><use href="#daisy" transform="scale(1.3)" style="color:#fffdfa"/></g></g>
+                        <g transform="translate(270 140)"><g class="bloom" style="--d:1.9s"><use href="#daisy" transform="scale(1.3)" style="color:#f7dcd2"/></g></g>
+                        <g transform="translate(70 220)"><g class="bloom" style="--d:2.1s"><use href="#daisy" transform="scale(1.15)" style="color:#e7a3a8"/></g></g>
+                        <g transform="translate(330 220)"><g class="bloom" style="--d:2.3s"><use href="#daisy" transform="scale(1.15)" style="color:#fffdfa"/></g></g>
+                        <g transform="translate(165 185)"><g class="bloom" style="--d:2.0s"><use href="#daisy" transform="scale(1)" style="color:#d98c96"/></g></g>
+                        <g transform="translate(235 185)"><g class="bloom" style="--d:2.2s"><use href="#daisy" transform="scale(1)" style="color:#f1d6c2"/></g></g>
+
+                        <path d="M105 320 L295 320 L228 412 Q200 420 172 412 Z" fill="#e9bfb6"/>
+                        <path d="M105 320 L200 346 L295 320 L228 412 Q200 420 172 412 Z" fill="#f3dcd6" stroke="rgba(110,47,58,.15)"/>
+                        <rect x="170" y="352" width="60" height="9" rx="4" fill="#6e2f3a"/>
+                        <ellipse cx="184" cy="356" rx="16" ry="9" fill="#b5646e" transform="rotate(-20 184 356)"/>
+                        <ellipse cx="216" cy="356" rx="16" ry="9" fill="#b5646e" transform="rotate(20 216 356)"/>
+                        <circle cx="200" cy="356" r="6" fill="#6e2f3a"/>
+                    </g>
+                </svg>
+            </div>
+
+            <p class="bouquet-note reveal">Because you deserve flowers every single day.</p>
         </section>
 
         <!-- CLOSING -->
