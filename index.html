@@ -461,54 +461,29 @@
         }
 
         /* ============ GALLERY ============ */
-        .gallery-wrap { max-width: 1160px; margin: 0 auto; }
+         <section>
+            <div class="section-head reveal">
+                <p class="eyebrow">Moments to keep</p>
+                <h2>Our <em>memories</em></h2>
+            </div>
 
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 28px;
-        }
-
-        .photo {
-            flex: 0 1 360px;
-            background: var(--paper);
-            padding: 14px 14px 0;
-            border-radius: 6px;
-            cursor: zoom-in;
-            box-shadow: 0 30px 60px -32px rgba(110, 47, 58, .55), 0 8px 20px -12px rgba(110, 47, 58, .25);
-        }
-
-        .photo:nth-child(odd)  { --tilt: -2deg; }
-        .photo:nth-child(even) { --tilt: 2deg; }
-
-        .photo.reveal { transform: translateY(40px) rotate(var(--tilt)); }
-        .photo.reveal.in { transform: rotate(var(--tilt)); }
-        .photo.reveal.in:hover { transform: translateY(-8px) rotate(0deg); transition-delay: 0s; }
-
-        .photo-frame {
-            overflow: hidden;
-            border-radius: 3px;
-            background: var(--blush);
-        }
-
-        .photo img {
-            display: block;
-            width: 100%;
-            height: auto;
-            transition: transform 1.2s var(--ease);
-        }
-
-        .photo:hover img { transform: scale(1.04); }
-
-        .photo figcaption {
-            font-family: var(--script);
-            font-size: 1.9rem;
-            color: var(--wine);
-            text-align: center;
-            padding: 12px 0 16px;
-        }
-
+            <div class="gallery-wrap">
+                <div class="gallery" id="gallery">
+                    <figure class="photo reveal" style="--d:0s">
+                        <div class="photo-frame"><img src="photos/photo1.jpg" alt="Our memory 1" loading="lazy"></div>
+                        <figcaption>Us</figcaption>
+                    </figure>
+                    <figure class="photo reveal" style="--d:.1s">
+                        <div class="photo-frame"><img src="photos/photo2.jpg" alt="Our memory 2" loading="lazy"></div>
+                        <figcaption>My favourite day</figcaption>
+                    </figure>
+                    <figure class="photo reveal" style="--d:.2s">
+                        <div class="photo-frame"><img src="photos/photo3.jpg" alt="Our memory 3" loading="lazy"></div>
+                        <figcaption>Forever</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
         /* lightbox */
         .lightbox {
             position: fixed;
@@ -678,7 +653,7 @@
                     <p class="letter-date line">Your 21st Birthday</p>
                     <p class="letter-greeting line">My dearest Tashiya,</p>
 
-                    <p class="lead line">Happy 21st birthday, mi amor love. I've no joke started this letter a hundred times in my head, and every time I realise there aren't enough words for what you mean to me &mdash; but I'm going to try, because you deserve to hear it.</p>
+                    <p class="lead line">Happy 21st birthday, Mi Amor. No joke started this letter a hundred times in my head, and every time I realise there aren't enough words for what you mean to me &mdash; but I'm going to try, because you deserve to hear it.</p>
 
                     <p class="line">I care about you more than I know how to say. Not just on birthdays or special days, but in all the quiet, ordinary moments too &mdash; when you're tired, when you're laughing at something silly, when you're worried about things you don't tell anyone else. I want you to know that I see you, all of you, and I love every part of who you are.</p>
 
@@ -690,7 +665,7 @@
 
                     <p class="line">Twenty-one kinda sound old buts still looks beautiful on you. I can't wait to see everything this year brings you, and I feel so lucky that I get to be there for it. Thank you for being you, for choosing me, and for making my world so much better just by being in it.</p>
 
-                    <p class="line">Today is all about you. Have the happiest birthday, my love.</p>
+                    <p class="line">Today is all about you. Have the Happiest Birthday</p>
 
                     <div class="letter-sign line">
                         <small>Always yours, with all my heart,</small>
